@@ -39,20 +39,22 @@
             white-space: pre-wrap; 
             font-size: 15px;
         }
+        .success { color: green; font-weight: bold; margin: 15px 0; }
     </style>
 </head>
 <body>
-    <h1>Brake; alternativaj konstituantoj</h1>
+    <h1>Brake; alternativaj konstituantoj </h1>
     
     <button id="copyBtn">📋 Kopii</button>
     
+    <div id="status"></div>
+    
     <div id="fallback">
-        <p>Se automata kopiado ne funkciis, bonvole marku kaj kopiu la tekston malsupre permane.</p>
+        <p>Se automata kopiado ne funkciis, bonvole marku la tekston kaj kopiu ghin permane.</p>
         <pre id="textfeld"></pre>
     </div>
 
     <script>
-        // === Jen la konstituantoj ===
         const meinText = `53.317505,8.487524,SA,8.21068449774034,329.59618370452847,Unspecified
 53.317505,8.487524,SSA,7.351324052218399,227.6153461558646,Unspecified
 53.317505,8.487524,MM,4.324004386348789,76.59446812264697,Unspecified
@@ -105,53 +107,54 @@
 53.317505,8.487524,M8,1.7316895089662607,335.50450691502465,Unspecified`;
 
         const btn = document.getElementById('copyBtn');
+        const status = document.getElementById('status');
         const fallback = document.getElementById('fallback');
         const textfeld = document.getElementById('textfeld');
 
+        let copyErfolgreich = false;
+
         function kopieren() {
             navigator.clipboard.writeText(meinText).then(() => {
-                zeigeErfolg();
+                erfolgMelden();
             }).catch(() => {
-                // Rezervo
-                const textarea = document.createElement("textarea");
-                textarea.value = meinText;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                
-                zeigeErfolg();
+                fallbackKopieren();
             });
         }
 
-        function zeigeErfolg() {
-            const original = btn.innerHTML;
-            btn.innerHTML = '✅ Erfolgreich kopiert!';
-            btn.style.background = '#00aa00';
+        function fallbackKopieren() {
+            const textarea = document.createElement("textarea");
+            textarea.value = meinText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            erfolgMelden();
+        }
+
+        function erfolgMelden() {
+            copyErfolgreich = true;
+            status.innerHTML = '<p class="success">✅ Kopiita sukcese!</p>';
             
             setTimeout(() => {
-                btn.innerHTML = original;
-                btn.style.background = '#0066ff';
+                status.innerHTML = '';
             }, 2500);
         }
 
-        // Button-Klick
+        // Button
         btn.addEventListener('click', kopieren);
 
         // Automatischer Versuch beim Laden
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                kopieren();
-            }, 700);
+            setTimeout(kopieren, 600);
         });
 
-        // Fallback anzeigen, falls nach 2 Sekunden nichts geklappt hat
+        // Fallback nur anzeigen, wenn nach 3 Sekunden nichts geklappt hat
         setTimeout(() => {
-            if (!document.querySelector('.success')) {
+            if (!copyErfolgreich) {
                 textfeld.textContent = meinText;
                 fallback.style.display = 'block';
             }
-        }, 2000);
+        }, 3000);
     </script>
 </body>
 </html>

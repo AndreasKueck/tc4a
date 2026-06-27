@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hechthausen (maksimumoj); alternativaj konstituantoj</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #333; }
+        .success { color: green; font-size: 1.2em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Teksto estas kopiata.</h1>
+    <p>Bonvole atendu mesaghon chi-malsupre.</p>
+
+    <script>
+        const meinText = `53.642089,9.253883,O1,6.035379,325.719869,1,-1,0,0,0,0,-1,Unspecified
+53.642089,9.253883,P1,2.376911,226.456491,1,1,-2,0,0,0,-1,Unspecified
+53.642089,9.253883,K1,3.971476,91.694404,1,1,0,0,0,0,1,Unspecified
+53.642089,9.253883,MU2,8.987621,172.06478,2,-2,2,0,0,0,0,Unspecified
+53.642089,9.253883,N2,9.21196,45.084335,2,-1,0,1,0,0,0,Unspecified
+53.642089,9.253883,M2,63.460009,79.099435,2,0,0,0,0,0,0,Unspecified
+53.642089,9.253883,S2,18.530525,149.477904,2,2,-2,0,0,0,0,Unspecified
+53.642089,9.253883,K2,19.36705,164.1502,2,2,0,0,0,0,0,Unspecified
+53.642089,9.253883,M4,10.343322,76.744359,4,0,0,0,0,0,0,Unspecified
+53.642089,9.253883,MS4,7.691177,142.074554,4,2,-2,0,0,0,0,Unspecified`;
+
+        navigator.clipboard.writeText(meinText).then(() => {
+            document.body.innerHTML += '<p class="success">Teksto estas kopiita tondejen!</p>';
+        }).catch(err => {
+            document.body.innerHTML += '<p>Automata kopiado ne ebla.<br>Bonvole marku la tekston:</p><pre style="text-align:left; background:#f4f4f4; padding:15px; white-space: pre-wrap;">' + meinText + '</pre>';
+        });
+    </script>
+</body>
+</html>

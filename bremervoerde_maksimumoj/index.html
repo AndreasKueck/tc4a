@@ -5,14 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bremervoerde (maksimumoj); alternativaj konstituantoj</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        h1 { color: #333; }
-        .success { color: green; font-size: 1.2em; margin-top: 20px; }
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 50px 20px; 
+            background: #f9f9f9; 
+        }
+        h1 { color: #333; margin-bottom: 30px; }
+        button { 
+            font-size: 20px; 
+            padding: 18px 40px; 
+            margin: 20px; 
+            background: #0066ff; 
+            color: white; 
+            border: none; 
+            border-radius: 10px; 
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,102,255,0.3);
+        }
+        button:hover { background: #0050cc; }
+        #fallback { 
+            margin-top: 40px; 
+            text-align: left; 
+            max-width: 700px; 
+            margin-left: auto; 
+            margin-right: auto;
+            display: none; 
+        }
+        pre { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            white-space: pre-wrap; 
+            font-size: 15px;
+        }
+        .success { color: green; font-weight: bold; margin: 15px 0; }
     </style>
 </head>
 <body>
-    <h1>Teksto estas kopiata.</h1>
-    <p>Bonvole atendu mesaghon chi-malsupre.</p>
+    <h1>Bremervoerde (maksimumoj); alternativaj konstituantoj</h1>
+    
+    <button id="copyBtn">📋 Kopii</button>
+    
+    <div id="status"></div>
+    
+    <div id="fallback">
+        <p>Se automata kopiado ne funkciis, bonvole marku la tekston kaj kopiu ghin permane.</p>
+        <pre id="textfeld"></pre>
+    </div>
 
     <script>
         const meinText = `53.485666,9.155876,O1,3.854039,15.299507,1,-1,0,0,0,0,-1,Unspecified
@@ -26,11 +66,55 @@
 53.485666,9.155876,M4,4.959255,214.910531,4,0,0,0,0,0,0,Unspecified
 53.485666,9.155876,MS4,3.39561,285.743796,4,2,-2,0,0,0,0,Unspecified`;
 
-        navigator.clipboard.writeText(meinText).then(() => {
-            document.body.innerHTML += '<p class="success">Teksto estas kopiita tondejen!</p>';
-        }).catch(err => {
-            document.body.innerHTML += '<p>Automata kopiado ne ebla.<br>Bonvole marku la tekston:</p><pre style="text-align:left; background:#f4f4f4; padding:15px; white-space: pre-wrap;">' + meinText + '</pre>';
+        const btn = document.getElementById('copyBtn');
+        const status = document.getElementById('status');
+        const fallback = document.getElementById('fallback');
+        const textfeld = document.getElementById('textfeld');
+
+        let copyErfolgreich = false;
+
+        function kopieren() {
+            navigator.clipboard.writeText(meinText).then(() => {
+                erfolgMelden();
+            }).catch(() => {
+                fallbackKopieren();
+            });
+        }
+
+        function fallbackKopieren() {
+            const textarea = document.createElement("textarea");
+            textarea.value = meinText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            erfolgMelden();
+        }
+
+        function erfolgMelden() {
+            copyErfolgreich = true;
+            status.innerHTML = '<p class="success">✅ Kopiita sukcese!</p>';
+            
+            setTimeout(() => {
+                status.innerHTML = '';
+            }, 2500);
+        }
+
+        // Button
+        btn.addEventListener('click', kopieren);
+
+        // Automatischer Versuch beim Laden
+        window.addEventListener('load', () => {
+            setTimeout(kopieren, 600);
         });
+
+        // Fallback nur anzeigen, wenn nach 3 Sekunden nichts geklappt hat
+        setTimeout(() => {
+            if (!copyErfolgreich) {
+                textfeld.textContent = meinText;
+                fallback.style.display = 'block';
+            }
+        }, 3000);
     </script>
 </body>
 </html>

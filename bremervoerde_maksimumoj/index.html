@@ -104,17 +104,17 @@
         btn.addEventListener('click', kopieren);
 
         // Automatischer Versuch beim Laden
-        window.addEventListener('load', () => {
-            setTimeout(kopieren, 600);
-        });
+//        window.addEventListener('load', () => {
+//            setTimeout(kopieren, 600);
+//        });
 
-        // Fallback nur anzeigen, wenn nach 3 Sekunden nichts geklappt hat
+        // Fallback nur anzeigen, wenn nach 5 Sekunden nichts geklappt hat
         setTimeout(() => {
             if (!copyErfolgreich) {
                 textfeld.textContent = meinText;
                 fallback.style.display = 'block';
             }
-        }, 3000);
+        }, 5000);
     </script>
 </body>
 </html>

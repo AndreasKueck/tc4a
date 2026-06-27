@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bremervoerde (minimimumoj); alternativaj konstituantoj</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #333; }
+        .success { color: green; font-size: 1.2em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Teksto estas kopiata.</h1>
+    <p>Bonvole atendu mesaghon chi-malsupre.</p>
+
+    <script>
+        const meinText = `53.485666,9.155876,O1,3.854039,28.777775,1,-1,0,0,0,0,-1,Unspecified
+53.485666,9.155876,P1,1.463643,292.828129,1,1,-2,0,0,0,-1,Unspecified
+53.485666,9.155876,K1,2.591474,156.300571,1,1,0,0,0,0,1,Unspecified
+53.485666,9.155876,MU2,4.932405,257.701077,2,-2,2,0,0,0,0,Unspecified
+53.485666,9.155876,N2,5.108736,138.653248,2,-1,0,1,0,0,0,Unspecified
+53.485666,9.155876,M2,31.931659,174.897122,2,0,0,0,0,0,0,Unspecified
+53.485666,9.155876,S2,9.048618,245.247217,2,2,-2,0,0,0,0,Unspecified
+53.485666,9.155876,K2,9.096352,262.720902,2,2,0,0,0,0,0,Unspecified
+53.485666,9.155876,M4,4.959255,270.946466,4,0,0,0,0,0,0,Unspecified
+53.485666,9.155876,MS4,3.39561,342.761763,4,2,-2,0,0,0,0,Unspecified`;
+
+        navigator.clipboard.writeText(meinText).then(() => {
+            document.body.innerHTML += '<p class="success">Teksto estas kopiita tondejen!</p>';
+        }).catch(err => {
+            document.body.innerHTML += '<p>Automata kopiado ne ebla.<br>Bonvole marku la tekston:</p><pre style="text-align:left; background:#f4f4f4; padding:15px; white-space: pre-wrap;">' + meinText + '</pre>';
+        });
+    </script>
+</body>
+</html>

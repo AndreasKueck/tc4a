@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belum; alternativaj konstituantoj</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #333; }
+        .success { color: green; font-size: 1.2em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Teksto estas kopiata.</h1>
+    <p>Bonvole atendu mesaghon chi-malsupre.</p>
+
+    <script>
+        const meinText = `53.82435,9.038212,O1,8.258355,107.659963,1,-1,0,0,0,0,-1,Unspecified
+53.82435,9.038212,P1,4.877284,1.715768,1,1,-2,0,0,0,-1,Unspecified
+53.82435,9.038212,K1,5.721436,205.675855,1,1,0,0,0,0,1,Unspecified
+53.82435,9.038212,MU2,11.543729,163.350502,2,-2,2,0,0,0,0,Unspecified
+53.82435,9.038212,N2,30.760941,32.250993,2,-1,0,1,0,0,0,Unspecified
+53.82435,9.038212,M2,99.046812,25.861512,2,0,0,0,0,0,0,Unspecified
+53.82435,9.038212,S2,26.853029,113.279698,2,2,-2,0,0,0,0,Unspecified
+53.82435,9.038212,K2,25.61486,89.778624,2,2,0,0,0,0,0,Unspecified
+53.82435,9.038212,M4,8.986222,317.704652,4,0,0,0,0,0,0,Unspecified
+53.82435,9.038212,MS4,8.284292,6.736021,4,2,-2,0,0,0,0,Unspecified`;
+
+        navigator.clipboard.writeText(meinText).then(() => {
+            document.body.innerHTML += '<p class="success">Teksto estas kopiita tondejen!</p>';
+        }).catch(err => {
+            document.body.innerHTML += '<p>Automata kopiado ne ebla.<br>Bonvole marku la tekston:</p><pre style="text-align:left; background:#f4f4f4; padding:15px; white-space: pre-wrap;">' + meinText + '</pre>';
+        });
+    </script>
+</body>
+</html>

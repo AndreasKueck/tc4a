@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stadersand; alternativaj konstituantoj</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #333; }
+        .success { color: green; font-size: 1.2em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Teksto estas kopiata.</h1>
+    <p>Bonvole atendu mesaghon chi-malsupre.</p>
+
+    <script>
+        const meinText = `53.629727,9.526587,SA,9.587834,333.600534,Unspecified
+53.629727,9.526587,SSA,8.747815,232.421945,Unspecified
+53.629727,9.526587,MM,5.050378,79.488904,Unspecified
+53.629727,9.526587,MSF,4.931276,66.099211,Unspecified
+53.629727,9.526587,MF,3.667766,134.421781,Unspecified
+53.629727,9.526587,MTM,1.572197,298.121614,Unspecified
+53.629727,9.526587,MSQM,1.718848,290.789337,Unspecified
+53.629727,9.526587,2Q1,0.857013,165.555754,Unspecified
+53.629727,9.526587,SGM,0.494881,125.375474,Unspecified
+53.629727,9.526587,Q1,3.395402,239.759378,Unspecified
+53.629727,9.526587,RHO1,0.702516,264.495936,Unspecified
+53.629727,9.526587,O1,10.449008,288.837590,Unspecified
+53.629727,9.526587,M1,0.768419,129.360334,Unspecified
+53.629727,9.526587,P1,3.050215,87.722530,Unspecified
+53.629727,9.526587,S1,1.944210,273.958194,Unspecified
+53.629727,9.526587,K1,7.930356,91.056647,Unspecified
+53.629727,9.526587,J1,0.935791,190.731267,Unspecified
+53.629727,9.526587,OO1,0.736621,223.219527,Unspecified
+53.629727,9.526587,EP2,3.959627,122.125703,Unspecified
+53.629727,9.526587,2N2,2.546264,25.242757,Unspecified
+53.629727,9.526587,MU2,18.938990,151.391075,Unspecified
+53.629727,9.526587,MKS2,15.226661,48.154055,Unspecified
+53.629727,9.526587,N2,20.825140,31.264048,Unspecified
+53.629727,9.526587,NU2,9.696779,17.636811,Unspecified
+53.629727,9.526587,MA2,6.083496,43.694264,Unspecified
+53.629727,9.526587,M2,135.572980,59.649768,Unspecified
+53.629727,9.526587,MB2,0.677677,151.226089,Unspecified
+53.629727,9.526587,3N2,0.980148,197.383566,Unspecified
+53.629727,9.526587,LAMBDA2,5.459300,73.037651,Unspecified
+53.629727,9.526587,L2,13.151495,80.163944,Unspecified
+53.629727,9.526587,3L2,9.239659,244.872656,Unspecified
+53.629727,9.526587,T2,2.375613,105.674389,Unspecified
+53.629727,9.526587,S2,32.452860,134.167487,Unspecified
+53.629727,9.526587,R2,0.213115,67.841836,Unspecified
+53.629727,9.526587,K2,12.753079,137.314757,Unspecified
+53.629727,9.526587,2SM2,3.464483,4.835207,Unspecified
+53.629727,9.526587,M3,0.237895,301.585495,Unspecified
+53.629727,9.526587,T3,0.053795,190.767817,Unspecified
+53.629727,9.526587,S3,0.143133,228.897181,Unspecified
+53.629727,9.526587,R3,0.539052,43.628152,Unspecified
+53.629727,9.526587,N4,0.758338,304.561053,Unspecified
+53.629727,9.526587,MN4,3.354025,320.172240,Unspecified
+53.629727,9.526587,M4,9.785706,345.205851,Unspecified
+53.629727,9.526587,MS4,5.902108,54.720166,Unspecified
+53.629727,9.526587,S4,0.558168,183.786102,Unspecified
+53.629727,9.526587,2MO5,0.462655,101.175517,Unspecified
+53.629727,9.526587,2MK5,0.518246,238.115198,Unspecified
+53.629727,9.526587,M6,6.968834,223.352276,Unspecified
+53.629727,9.526587,2MS6,7.212792,292.043978,Unspecified
+53.629727,9.526587,M8,2.211194,180.014071,Unspecified`;
+
+        navigator.clipboard.writeText(meinText).then(() => {
+            document.body.innerHTML += '<p class="success">Teksto estas kopiita tondejen!</p>';
+        }).catch(err => {
+            document.body.innerHTML += '<p>Automata kopiado ne ebla.<br>Bonvole marku la tekston:</p><pre style="text-align:left; background:#f4f4f4; padding:15px; white-space: pre-wrap;">' + meinText + '</pre>';
+        });
+    </script>
+</body>
+</html>

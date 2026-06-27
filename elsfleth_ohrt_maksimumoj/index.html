@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elsfleth Ohrt (maksimumoj); alternativaj konstituantoj</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #333; }
+        .success { color: green; font-size: 1.2em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Teksto estas kopiata.</h1>
+    <p>Bonvole atendu mesaghon chi-malsupre.</p>
+
+    <script>
+        const meinText = `53.2458041,8.4554546,O1,10.61954,276.081228,1,-1,0,0,0,0,-1,Unspecified
+53.2458041,8.4554546,P1,4.217272,176.546431,1,1,-2,0,0,0,-1,Unspecified
+53.2458041,8.4554546,K1,7.23545,36.120895,1,1,0,0,0,0,1,Unspecified
+53.2458041,8.4554546,MU2,22.816205,100.821099,2,-2,2,0,0,0,0,Unspecified
+53.2458041,8.4554546,N2,24.284187,353.89545,2,-1,0,1,0,0,0,Unspecified
+53.2458041,8.4554546,M2,162.053475,23.779055,2,0,0,0,0,0,0,Unspecified
+53.2458041,8.4554546,S2,54.561501,100.220631,2,2,-2,0,0,0,0,Unspecified
+53.2458041,8.4554546,K2,53.332353,110.57081,2,2,0,0,0,0,0,Unspecified
+53.2458041,8.4554546,M4,6.619307,257.365052,4,0,0,0,0,0,0,Unspecified
+53.2458041,8.4554546,MS4,7.414969,324.951215,4,2,-2,0,0,0,0,Unspecified`;
+
+        navigator.clipboard.writeText(meinText).then(() => {
+            document.body.innerHTML += '<p class="success">Teksto estas kopiita tondejen!</p>';
+        }).catch(err => {
+            document.body.innerHTML += '<p>Automata kopiado ne ebla.<br>Bonvole marku la tekston:</p><pre style="text-align:left; background:#f4f4f4; padding:15px; white-space: pre-wrap;">' + meinText + '</pre>';
+        });
+    </script>
+</body>
+</html>

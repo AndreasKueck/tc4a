@@ -50,7 +50,7 @@
     <div id="status"></div>
     
     <div id="fallback">
-        <p>Se automata kopiado ne funkciis, bonvole marku la tekston kaj kopiu ghin permane.</p>
+        <p>Se kopiado per la butono supre ne funkciis, bonvole marku la tekston kaj kopiu ghin permane.</p>
         <pre id="textfeld"></pre>
     </div>
 
@@ -108,13 +108,13 @@
 //            setTimeout(kopieren, 600);
 //        });
 
-        // Fallback nur anzeigen, wenn nach 5 Sekunden nichts geklappt hat
+        // Fallback nur anzeigen, wenn nach 7 Sekunden nichts geklappt hat
         setTimeout(() => {
             if (!copyErfolgreich) {
                 textfeld.textContent = meinText;
                 fallback.style.display = 'block';
             }
-        }, 5000);
+        }, 7000);
     </script>
 </body>
 </html>

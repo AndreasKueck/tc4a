@@ -50,7 +50,7 @@
     <div id="status"></div>
     
     <div id="fallback">
-        <p>Se automata kopiado ne funkciis, bonvole marku la tekston kaj kopiu ghin permane.</p>
+        <p>Se kopiado per la butono supre ne funkciiss, bonvole marku la tekston kaj kopiu ghin permane.</p>
         <pre id="textfeld"></pre>
     </div>
 
@@ -144,17 +144,17 @@
         btn.addEventListener('click', kopieren);
 
         // Automatischer Versuch beim Laden
-        window.addEventListener('load', () => {
-            setTimeout(kopieren, 600);
-        });
+//        window.addEventListener('load', () => {
+//            setTimeout(kopieren, 600);
+//        });
 
-        // Fallback nur anzeigen, wenn nach 3 Sekunden nichts geklappt hat
+        // Fallback nur anzeigen, wenn nach 7 Sekunden nichts geklappt hat
         setTimeout(() => {
             if (!copyErfolgreich) {
                 textfeld.textContent = meinText;
                 fallback.style.display = 'block';
             }
-        }, 3000);
+        }, 7000);
     </script>
 </body>
 </html>

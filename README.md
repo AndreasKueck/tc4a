@@ -1,0 +1,1 @@
+Tiu chi GitHub-deponejo entenas plurajn "index.html"-dosierojn, al kiuj estas ligiloj en [Android-apo "Maro" kaj la rilata ret-apo](https://gist.github.com/AndreasKueck/a62016ed4c3efaa477691de06af8d794). Vizitante tiujn "index.html"-dosierojn, la uzanto povas kopii tondejen harmonajn konstituantojn alternativajn al tiuj donitaj en TICON-4 kaj alglui ilin en la (ret-)apon.
